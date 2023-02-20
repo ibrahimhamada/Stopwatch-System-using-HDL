@@ -13,4 +13,5 @@ The stopwatch has multiple inputs as follows:
 6) Push button for adding (or subtracting) 2 minutes each time it is pressed (add2 button). The adding or subtracting is allowed while counting and while paused.
 
     a) Count-up mode: adding 2 minutes each time it is pressed.
+    
     b) Count-down mode: subtracting 2 minutes each time it is pressed.
