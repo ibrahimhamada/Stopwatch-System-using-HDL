@@ -1,0 +1,11 @@
+module DFF( clk, reset, set, EN, D, Q);
+
+input logic clk, reset, EN, D, set;
+output logic Q;
+
+// asynchronous reset
+always_ff @(posedge clk, posedge reset, posedge set)
+if (set) Q <= 1;
+else if (reset) Q <= 0;
+else if (EN) Q <= D;
+endmodule

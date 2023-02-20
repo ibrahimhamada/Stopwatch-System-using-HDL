@@ -1,0 +1,21 @@
+/* This module implments a 4-bit register with a Enable, Set, and Synchrouns Reset */
+module Error1( clk, reset, up, start, err1);
+
+input logic clk, reset, up, start;
+output logic err1;
+
+wire M1_out, M2_out, M3_out, M4_out, M5_out, M6_out, M7_out, M8_out;
+//4 D_FF are used to deal with each bit of the 4 bits, where they are all synchronised
+D_FF_SyncR M1(clk, reset, 1'b1, up, M1_out);
+xnor M2(M2_out, M1_out, ~up);
+and M3(M3_out, M2_out, start);
+D_FF_SyncR M4(clk, reset, 1'b1, M3_out, M4_out);
+or M5(M5_out, M4_out, M3_out);
+D_FF_SyncR M6(clk, reset, 1'b1, M5_out, M6_out);
+or M7(M7_out, M5_out, M6_out);
+D_FF_SyncR M8(clk, reset, 1'b1, M7_out, M8_out);
+or M9(err1, M7_out, M8_out);
+
+endmodule
+
+//module D_FF_SyncR( clk, reset, EN, D, Q);

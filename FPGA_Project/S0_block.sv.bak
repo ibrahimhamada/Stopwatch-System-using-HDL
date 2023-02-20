@@ -1,0 +1,44 @@
+//This module implments the S0 digit in the stopwatch.
+module S0_block(clk, reset, start, ups, in_sig_S1, in_comp_sig_S1, out_sig_S1, out_S0);
+input logic clk, reset, start, ups, in_sig_S1, in_comp_sig_S1;
+output reg [3:0] out_S0;
+output logic out_sig_S1;
+
+//wires
+wire [3:0] M1_out, M2_out;
+
+wire cout_M2, M3_out, M4_out, M5_out, M6_out, M7_out, M11_out, M13_out, M14_out, M15_out,M16_out;
+
+wire down, reset_signal, enable_signal;
+wire [3:0] set_reg;
+assign down = ~ups;
+
+//Set Signals based on the selected mode (up/down)
+MUX2 #(4) M1(4'b1111, 4'b0001, ups, M1_out);
+FA4 M2(1'b0, out_S0, M1_out, cout_M2, M2_out);
+
+AND4_mod M3(~out_S0[0], ~out_S0[1], ~out_S0[2], ~out_S0[3], M3_out);
+AND4_mod M4(out_S0[0], ~out_S0[1], ~out_S0[2], out_S0[3], M4_out);
+and M5(M5_out, ~down, M4_out);
+and M6(M6_out, down, M3_out);
+and M7(M7_out, ups, M5_out);
+or M8(M16_out, M7_out, M6_out); //out_sig_S1
+and M16(out_sig_S1,M16_out,enable_signal);
+OR3_mod M9(M5_out, reset, in_comp_sig_S1, reset_signal);  //Reset Signal
+
+and M13(M13_out, ups, in_sig_S1);
+and M14(M14_out, M6_out, in_sig_S1);
+or M15(M15_out, M13_out, M14_out);
+
+and M10(enable_signal, start, ~M15_out);  //Enable Signal
+and M11(M11_out, down, M3_out);
+
+MUX2 #(4) M12(M2_out, 4'b1001, M11_out, set_reg);
+
+
+//Register Output Signal
+Register4_SyncR RR(clk, reset_signal, enable_signal, set_reg, out_S0);
+endmodule
+
+
+

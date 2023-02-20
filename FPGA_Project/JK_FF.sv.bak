@@ -1,0 +1,12 @@
+module JK_FF(clk,reset,EN,J,K,Q);
+input logic clk, J,K,reset,EN;
+output logic Q;
+wire D,and1,not_K,not_Q;
+D_FF_SyncR DFF(clk,reset,EN,D,Q);
+not gate0(not_K,K);
+not gate1(not_Q,Q);
+and gate2(and1,not_K,Q);
+and gate3(and2,not_Q,J);
+or gate4(D,and1,and2);
+endmodule
+

@@ -1,0 +1,14 @@
+module clock_dividor(clk,speedup,slowdown,outputclk);
+input clk;
+input speedup;
+input slowdown;
+wire  w0,w1,w2;
+output reg outputclk;
+clckdivider1hz clk1(clk,w0);
+clckdividerhalfhz clk2(clk,w1);
+clckdivider2hz clk3(clk,w2); 
+MUX4 #(1) mux(w0,w1,w2,w0,{slowdown,speedup},outputclk);
+
+endmodule
+
+

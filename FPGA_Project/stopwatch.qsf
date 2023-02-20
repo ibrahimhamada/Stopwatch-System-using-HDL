@@ -1,0 +1,139 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2022  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and any partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details, at
+# https://fpgasoftware.intel.com/eula.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+# Date created = 01:32:11  January 05, 2023
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		stopwatch_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Intel recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE22F17C6
+set_global_assignment -name TOP_LEVEL_ENTITY STOPWATCH
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 22.1STD.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "01:32:11  JANUARY 05, 2023"
+set_global_assignment -name LAST_QUARTUS_VERSION "22.1std.0 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 256
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 6
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim (Verilog)"
+set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
+set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_timing_analysis
+set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_formal_verification
+set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_timing
+set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_symbol
+set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_signal_integrity
+set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name SYSTEMVERILOG_FILE Subtractor4.sv
+set_global_assignment -name SYSTEMVERILOG_FILE STOPWATCH_Seven_Seg.sv
+set_global_assignment -name SYSTEMVERILOG_FILE STOPWATCH.sv
+set_global_assignment -name SYSTEMVERILOG_FILE seven_seg_decoder.sv
+set_global_assignment -name SYSTEMVERILOG_FILE S1_block.sv
+set_global_assignment -name SYSTEMVERILOG_FILE S0_block.sv
+set_global_assignment -name SYSTEMVERILOG_FILE Register4_SyncR.sv
+set_global_assignment -name SYSTEMVERILOG_FILE OR3_mod.sv
+set_global_assignment -name SYSTEMVERILOG_FILE NOR4_mod.sv
+set_global_assignment -name SYSTEMVERILOG_FILE MUX4.sv
+set_global_assignment -name SYSTEMVERILOG_FILE MUX2.sv
+set_global_assignment -name SYSTEMVERILOG_FILE M1_block.sv
+set_global_assignment -name SYSTEMVERILOG_FILE M0_block.sv
+set_global_assignment -name SYSTEMVERILOG_FILE JK_FF.sv
+set_global_assignment -name SYSTEMVERILOG_FILE FA4.sv
+set_global_assignment -name SYSTEMVERILOG_FILE FA.sv
+set_global_assignment -name SYSTEMVERILOG_FILE Error1_out.sv
+set_global_assignment -name SYSTEMVERILOG_FILE Error1.sv
+set_global_assignment -name SYSTEMVERILOG_FILE DFF_mod.sv
+set_global_assignment -name SYSTEMVERILOG_FILE D_FF_SyncR.sv
+set_global_assignment -name SYSTEMVERILOG_FILE Comparator4.sv
+set_global_assignment -name SYSTEMVERILOG_FILE clock_dividor.sv
+set_global_assignment -name SYSTEMVERILOG_FILE clckdividerhalfhz.sv
+set_global_assignment -name SYSTEMVERILOG_FILE clckdivider2hz.sv
+set_global_assignment -name SYSTEMVERILOG_FILE clckdivider1hz.sv
+set_global_assignment -name SYSTEMVERILOG_FILE AND4_mod.sv
+set_location_assignment PIN_R8 -to in_clk
+set_location_assignment PIN_J15 -to reset
+set_location_assignment PIN_E1 -to plus_min2
+set_location_assignment PIN_M1 -to start
+set_location_assignment PIN_T8 -to up
+set_location_assignment PIN_B9 -to speedup
+set_location_assignment PIN_M15 -to slowdown
+set_global_assignment -name ENABLE_OCT_DONE OFF
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_WEAK_PULLUP "AS INPUT TRI-STATED"
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+set_global_assignment -name SYSTEMVERILOG_FILE output_files/STOPWATCH_LEDS.sv
+set_location_assignment PIN_D5 -to out_M0[6]
+set_location_assignment PIN_A6 -to out_M0[5]
+set_location_assignment PIN_D6 -to out_M0[4]
+set_location_assignment PIN_C6 -to out_M0[3]
+set_location_assignment PIN_R11 -to out_M0[2]
+set_location_assignment PIN_R10 -to out_M0[1]
+set_location_assignment PIN_P9 -to out_M0[0]
+set_location_assignment PIN_D3 -to out_M1[6]
+set_location_assignment PIN_C3 -to out_M1[5]
+set_location_assignment PIN_A3 -to out_M1[4]
+set_location_assignment PIN_B4 -to out_M1[3]
+set_location_assignment PIN_F13 -to out_M1[2]
+set_location_assignment PIN_T15 -to out_M1[1]
+set_location_assignment PIN_T13 -to out_M1[0]
+set_location_assignment PIN_D9 -to out_S0[6]
+set_location_assignment PIN_E10 -to out_S0[5]
+set_location_assignment PIN_B11 -to out_S0[4]
+set_location_assignment PIN_D11 -to out_S0[3]
+set_location_assignment PIN_P16 -to out_S0[2]
+set_location_assignment PIN_N16 -to out_S0[1]
+set_location_assignment PIN_P14 -to out_S0[0]
+set_location_assignment PIN_E6 -to out_S1[6]
+set_location_assignment PIN_D8 -to out_S1[5]
+set_location_assignment PIN_F8 -to out_S1[4]
+set_location_assignment PIN_E9 -to out_S1[3]
+set_location_assignment PIN_N11 -to out_S1[2]
+set_location_assignment PIN_K16 -to out_S1[1]
+set_location_assignment PIN_L15 -to out_S1[0]
+set_global_assignment -name SYSTEMVERILOG_FILE MUX2_1S.sv
+set_global_assignment -name SYSTEMVERILOG_FILE MUX2_14S.sv
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

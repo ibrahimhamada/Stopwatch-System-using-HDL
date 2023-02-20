@@ -1,0 +1,63 @@
+//This module implments the S1 digit in the stopwatch.
+module S1_block(clk, reset, start, ups, force_reset, in_sig_S0, in_sig_M0, out_sig_S0, out_comp_sig_S0, out_sig_M0, out_S1,M_set, plus_min2);
+input logic clk, reset, start, ups, force_reset, in_sig_S0, in_sig_M0,M_set, plus_min2;  //inputs
+output reg [3:0] out_S1;                                                                 //output register 4 bits
+output logic out_sig_S0, out_comp_sig_S0, out_sig_M0;                                    //outputs
+
+//wires
+wire [3:0] M1_out, M2_out, M3_out;
+wire cout_M3, M4_out, M5_out, M6_out, M8_out, M9_out, M10_out, M11_out, M12_out, M13_out, S_3, S_2,M50_out,M66_out;
+wire M17_out, M18_out, M19_out, M20_out, M21_out, M22_out, M23_out, M24_out, M26_out, M27_out, M28_out, M30_out, M7_out, M72_out, M71_out;
+wire down, reset_signal, enable_signal;
+wire [3:0] set_reg;
+assign down = ~ups;
+
+//Set Signals based on the selected mode (up/down)
+MUX2 #(4) M1(4'b1111, 4'b0001, ups, M1_out);
+MUX2 #(4) M2(4'b0000, M1_out, in_sig_S0, M2_out);
+FA4 M3(1'b0, out_S1, M2_out, cout_M3, M3_out);
+AND4_mod M4(out_S1[0], ~out_S1[1], out_S1[2], ~out_S1[3], M4_out);
+AND4_mod M5(~out_S1[0], ~out_S1[1], ~out_S1[2], ~out_S1[3], M5_out);
+and M6(M6_out, ~down, M4_out);
+and M7(M7_out, in_sig_S0, M6_out);  
+or M70(reset_signal, M7_out, force_reset);   //Reset Signal
+and M8(M8_out, ups, M6_out);
+and M9(M9_out, down, M5_out);
+or M10(M10_out, M9_out, M8_out);  //out_sig_M0
+and M50(M50_out,  M10_out, in_sig_S0);
+and M51(out_sig_M0,M50_out,enable_signal);
+///comparator Circuit
+Comparator4 M11(out_S1, 4'b0010, M11_out);
+Comparator4 M12(4'b0010, out_S1, M12_out);
+MUX2 #(1) M13(M11_out, M12_out, ups, M13_out);  
+and M14(M66_out, M13_out, in_sig_M0);
+or M66(out_comp_sig_S0,M66_out,M_set);
+//S3, S2
+and M15(S_3, down, out_comp_sig_S0);  //S3
+and M16(S_2, ups, out_comp_sig_S0);    //S2
+and M17(M40_out, down, M5_out);
+and M40(M17_out, M40_out, in_sig_S0);
+and M18(M18_out, ups, reset);
+and M19(M19_out, down, reset);
+or M20(M20_out, S_2, M19_out);
+or M22(M22_out, M18_out, S_3);
+or M21(M21_out, M22_out, M20_out);  //M1
+and M23(M23_out, ~M22_out, M17_out);  
+or M24(M24_out, M23_out, M20_out);  //M0
+
+MUX4 #(4) M25(M3_out, 4'b0101, 4'b0010, 4'b0011, {M21_out, M24_out}, set_reg);  //Set Register
+
+AND4_mod M26(out_S1[0], out_S1[1], ~out_S1[2], ~out_S1[3], M26_out);
+AND4_mod M27(~out_S1[0], out_S1[1], ~out_S1[2], ~out_S1[3], M27_out);
+
+MUX2 #(1) M28(M27_out, M26_out, ups, M28_out);
+and M29(out_sig_S0, M28_out, in_sig_M0);  //out_sig_S0
+
+or M71(M71_out, plus_min2, start);
+and M30(M30_out, ~out_sig_S0, start);  //Enable Signal
+wire M31_out;
+or M31(enable_signal, M30_out, reset);
+
+//Register Output Signal
+Register4_SyncR RR(clk, reset_signal, 1'b1, set_reg, out_S1);
+endmodule

@@ -1,0 +1,16 @@
+/* This module implments a 4-inputs NOR Gate that stores the result is stored in y */
+module NOR4 (a0, a1, a2, a3, y);
+input logic a0, a1, a2, a3;  //Input 4 bits
+output logic y;              //Output: y = (a0 + a1 + a2 + a3)'
+
+wire w1, w2, w3;
+
+//The module uses 3 2-input OR to find the result of ORing 4 bits
+or M1(w1, a0, a1);
+or M2(w2, a2, a3);
+or M3(w3, w1, w2);
+//OR of the four inputs is inverted to find the NOR
+not M4(y, w3);
+
+endmodule
+
