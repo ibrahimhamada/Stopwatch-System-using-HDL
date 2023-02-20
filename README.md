@@ -15,3 +15,12 @@ The stopwatch has multiple inputs as follows:
     a) Count-up mode: adding 2 minutes each time it is pressed.
     
     b) Count-down mode: subtracting 2 minutes each time it is pressed.
+
+## The System Design:
+![Uploading Circuittttttttt.jpg…]()
+
+
+## Demo <a name="demo"></a>
+
+https://user-images.githubusercontent.com/58476343/220156630-2d7ac2c4-3c68-4b2d-b5d4-03c5431df58b.mp4
+
