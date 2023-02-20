@@ -1,0 +1,1586 @@
+Analysis & Synthesis report for stopwatch
+Mon Jan  9 22:30:16 2023
+Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|clock_dividor:H1|clckdivider1hz:clk1
+ 11. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|clock_dividor:H1|clckdividerhalfhz:clk2
+ 12. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|clock_dividor:H1|clckdivider2hz:clk3
+ 13. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux
+ 14. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|MUX2:M1
+ 15. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|MUX2:M2
+ 16. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|MUX2:M3
+ 17. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|S0_block:H3|MUX2:M1
+ 18. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|S0_block:H3|MUX2:M12
+ 19. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|S1_block:H4|MUX2:M1
+ 20. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|S1_block:H4|MUX2:M2
+ 21. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|S1_block:H4|MUX2:M13
+ 22. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|S1_block:H4|MUX4:M25
+ 23. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|S1_block:H4|MUX4:M25|MUX2:M1
+ 24. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|S1_block:H4|MUX4:M25|MUX2:M2
+ 25. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|S1_block:H4|MUX4:M25|MUX2:M3
+ 26. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|S1_block:H4|MUX2:M28
+ 27. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M1
+ 28. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M2
+ 29. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M4
+ 30. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M5
+ 31. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M15
+ 32. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M17
+ 33. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M18
+ 34. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M19
+ 35. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M28
+ 36. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M1_block:H6|MUX2:M1
+ 37. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M1_block:H6|MUX2:M2
+ 38. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M1_block:H6|MUX4:M6
+ 39. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M1_block:H6|MUX4:M6|MUX2:M1
+ 40. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M1_block:H6|MUX4:M6|MUX2:M2
+ 41. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M1_block:H6|MUX4:M6|MUX2:M3
+ 42. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M2
+ 43. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M3
+ 44. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M4
+ 45. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M5
+ 46. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M6
+ 47. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M7
+ 48. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M8
+ 49. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M9
+ 50. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M10
+ 51. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M11
+ 52. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M12
+ 53. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M13
+ 54. Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M14
+ 55. Port Connectivity Checks: "seven_seg_decoder:KS0|AND4_mod:M37"
+ 56. Port Connectivity Checks: "seven_seg_decoder:KS0|AND4_mod:M25"
+ 57. Port Connectivity Checks: "seven_seg_decoder:KS0|AND4_mod:M24"
+ 58. Port Connectivity Checks: "seven_seg_decoder:KS0|AND4_mod:M20"
+ 59. Port Connectivity Checks: "seven_seg_decoder:KS0|AND4_mod:M19"
+ 60. Port Connectivity Checks: "seven_seg_decoder:KS0|AND4_mod:M18"
+ 61. Port Connectivity Checks: "seven_seg_decoder:KS0|AND4_mod:M17"
+ 62. Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M13"
+ 63. Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M12"
+ 64. Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M10"
+ 65. Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M9"
+ 66. Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M7"
+ 67. Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M6"
+ 68. Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M4"
+ 69. Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M3"
+ 70. Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M2"
+ 71. Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|JK_FF:M1"
+ 72. Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|Error1:M20|D_FF_SyncR:M8"
+ 73. Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|Error1:M20|D_FF_SyncR:M6"
+ 74. Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|Error1:M20|D_FF_SyncR:M4"
+ 75. Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|Error1:M20|D_FF_SyncR:M1"
+ 76. Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7"
+ 77. Port Connectivity Checks: "STOPWATCH_LEDS:K1|M1_block:H6|MUX4:M6"
+ 78. Port Connectivity Checks: "STOPWATCH_LEDS:K1|M1_block:H6|FA4:M3"
+ 79. Port Connectivity Checks: "STOPWATCH_LEDS:K1|M1_block:H6|MUX2:M2"
+ 80. Port Connectivity Checks: "STOPWATCH_LEDS:K1|M1_block:H6|MUX2:M1"
+ 81. Port Connectivity Checks: "STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M19"
+ 82. Port Connectivity Checks: "STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M17"
+ 83. Port Connectivity Checks: "STOPWATCH_LEDS:K1|M0_block:H5|FA4:M6"
+ 84. Port Connectivity Checks: "STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M5"
+ 85. Port Connectivity Checks: "STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M4"
+ 86. Port Connectivity Checks: "STOPWATCH_LEDS:K1|M0_block:H5|FA4:M3"
+ 87. Port Connectivity Checks: "STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M2"
+ 88. Port Connectivity Checks: "STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M1"
+ 89. Port Connectivity Checks: "STOPWATCH_LEDS:K1|S1_block:H4|Register4_SyncR:RR"
+ 90. Port Connectivity Checks: "STOPWATCH_LEDS:K1|S1_block:H4|MUX4:M25"
+ 91. Port Connectivity Checks: "STOPWATCH_LEDS:K1|S1_block:H4|Comparator4:M12"
+ 92. Port Connectivity Checks: "STOPWATCH_LEDS:K1|S1_block:H4|Comparator4:M11|Subtractor4:M1|FA4:A1"
+ 93. Port Connectivity Checks: "STOPWATCH_LEDS:K1|S1_block:H4|Comparator4:M11|Subtractor4:M1"
+ 94. Port Connectivity Checks: "STOPWATCH_LEDS:K1|S1_block:H4|Comparator4:M11"
+ 95. Port Connectivity Checks: "STOPWATCH_LEDS:K1|S1_block:H4|FA4:M3"
+ 96. Port Connectivity Checks: "STOPWATCH_LEDS:K1|S1_block:H4|MUX2:M2"
+ 97. Port Connectivity Checks: "STOPWATCH_LEDS:K1|S1_block:H4|MUX2:M1"
+ 98. Port Connectivity Checks: "STOPWATCH_LEDS:K1|S0_block:H3|MUX2:M12"
+ 99. Port Connectivity Checks: "STOPWATCH_LEDS:K1|S0_block:H3|FA4:M2"
+100. Port Connectivity Checks: "STOPWATCH_LEDS:K1|S0_block:H3|MUX2:M1"
+101. Port Connectivity Checks: "STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|MUX2:M3"
+102. Port Connectivity Checks: "STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|MUX2:M2"
+103. Port Connectivity Checks: "STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|MUX2:M1"
+104. Post-Synthesis Netlist Statistics for Top Partition
+105. Elapsed Time Per Partition
+106. Analysis & Synthesis Messages
+107. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2022  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Jan  9 22:30:16 2023          ;
+; Quartus Prime Version              ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
+; Revision Name                      ; stopwatch                                      ;
+; Top-level Entity Name              ; STOPWATCH                                      ;
+; Family                             ; Cyclone IV E                                   ;
+; Total logic elements               ; 292                                            ;
+;     Total combinational functions  ; 291                                            ;
+;     Dedicated logic registers      ; 109                                            ;
+; Total registers                    ; 109                                            ;
+; Total pins                         ; 35                                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE22F17C6       ;                    ;
+; Top-level entity name                                            ; STOPWATCH          ; stopwatch          ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-16        ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                  ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                              ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------+---------+
+; Subtractor4.sv                   ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/Subtractor4.sv                 ;         ;
+; STOPWATCH.sv                     ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/STOPWATCH.sv                   ;         ;
+; seven_seg_decoder.sv             ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/seven_seg_decoder.sv           ;         ;
+; S1_block.sv                      ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/S1_block.sv                    ;         ;
+; S0_block.sv                      ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/S0_block.sv                    ;         ;
+; Register4_SyncR.sv               ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/Register4_SyncR.sv             ;         ;
+; OR3_mod.sv                       ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/OR3_mod.sv                     ;         ;
+; MUX4.sv                          ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/MUX4.sv                        ;         ;
+; MUX2.sv                          ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/MUX2.sv                        ;         ;
+; M1_block.sv                      ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/M1_block.sv                    ;         ;
+; M0_block.sv                      ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/M0_block.sv                    ;         ;
+; JK_FF.sv                         ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/JK_FF.sv                       ;         ;
+; FA4.sv                           ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/FA4.sv                         ;         ;
+; FA.sv                            ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/FA.sv                          ;         ;
+; Error1_out.sv                    ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/Error1_out.sv                  ;         ;
+; Error1.sv                        ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/Error1.sv                      ;         ;
+; DFF_mod.sv                       ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/DFF_mod.sv                     ;         ;
+; D_FF_SyncR.sv                    ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/D_FF_SyncR.sv                  ;         ;
+; Comparator4.sv                   ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/Comparator4.sv                 ;         ;
+; clock_dividor.sv                 ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/clock_dividor.sv               ;         ;
+; clckdividerhalfhz.sv             ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/clckdividerhalfhz.sv           ;         ;
+; clckdivider2hz.sv                ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/clckdivider2hz.sv              ;         ;
+; clckdivider1hz.sv                ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/clckdivider1hz.sv              ;         ;
+; AND4_mod.sv                      ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/AND4_mod.sv                    ;         ;
+; output_files/STOPWATCH_LEDS.sv   ; yes             ; User SystemVerilog HDL File  ; D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/output_files/STOPWATCH_LEDS.sv ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------+---------+
+
+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimated Total logic elements              ; 292          ;
+;                                             ;              ;
+; Total combinational functions               ; 291          ;
+; Logic element usage by number of LUT inputs ;              ;
+;     -- 4 input functions                    ; 159          ;
+;     -- 3 input functions                    ; 39           ;
+;     -- <=2 input functions                  ; 93           ;
+;                                             ;              ;
+; Logic elements by mode                      ;              ;
+;     -- normal mode                          ; 210          ;
+;     -- arithmetic mode                      ; 81           ;
+;                                             ;              ;
+; Total registers                             ; 109          ;
+;     -- Dedicated logic registers            ; 109          ;
+;     -- I/O registers                        ; 0            ;
+;                                             ;              ;
+; I/O pins                                    ; 35           ;
+;                                             ;              ;
+; Embedded Multiplier 9-bit elements          ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; in_clk~input ;
+; Maximum fan-out                             ; 87           ;
+; Total fan-out                               ; 1315         ;
+; Average fan-out                             ; 2.80         ;
++---------------------------------------------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                         ;
++-----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------+-------------------+--------------+
+; Compilation Hierarchy Node        ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                       ; Entity Name       ; Library Name ;
++-----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------+-------------------+--------------+
+; |STOPWATCH                        ; 291 (0)             ; 109 (0)                   ; 0           ; 0            ; 0       ; 0         ; 35   ; 0            ; |STOPWATCH                                                                ; STOPWATCH         ; work         ;
+;    |STOPWATCH_LEDS:K1|            ; 247 (0)             ; 109 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1                                              ; STOPWATCH_LEDS    ; work         ;
+;       |DFF_mod:H2|                ; 4 (4)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|DFF_mod:H2                                   ; DFF_mod           ; work         ;
+;       |Error1_out:H7|             ; 22 (0)              ; 5 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|Error1_out:H7                                ; Error1_out        ; work         ;
+;          |Error1:M20|             ; 5 (1)               ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|Error1_out:H7|Error1:M20                     ; Error1            ; work         ;
+;             |D_FF_SyncR:M1|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|Error1_out:H7|Error1:M20|D_FF_SyncR:M1       ; D_FF_SyncR        ; work         ;
+;             |D_FF_SyncR:M4|       ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|Error1_out:H7|Error1:M20|D_FF_SyncR:M4       ; D_FF_SyncR        ; work         ;
+;             |D_FF_SyncR:M6|       ; 2 (2)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|Error1_out:H7|Error1:M20|D_FF_SyncR:M6       ; D_FF_SyncR        ; work         ;
+;             |D_FF_SyncR:M8|       ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|Error1_out:H7|Error1:M20|D_FF_SyncR:M8       ; D_FF_SyncR        ; work         ;
+;          |JK_FF:M1|               ; 2 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|Error1_out:H7|JK_FF:M1                       ; JK_FF             ; work         ;
+;             |D_FF_SyncR:DFF|      ; 2 (2)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|Error1_out:H7|JK_FF:M1|D_FF_SyncR:DFF        ; D_FF_SyncR        ; work         ;
+;          |MUX2:M11|               ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M11                       ; MUX2              ; work         ;
+;          |MUX2:M14|               ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M14                       ; MUX2              ; work         ;
+;          |MUX2:M5|                ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M5                        ; MUX2              ; work         ;
+;          |MUX2:M8|                ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M8                        ; MUX2              ; work         ;
+;       |M0_block:H5|               ; 38 (6)              ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M0_block:H5                                  ; M0_block          ; work         ;
+;          |AND4_mod:M13|           ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M0_block:H5|AND4_mod:M13                     ; AND4_mod          ; work         ;
+;          |FA4:M3|                 ; 6 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M0_block:H5|FA4:M3                           ; FA4               ; work         ;
+;             |FA:A1|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M0_block:H5|FA4:M3|FA:A1                     ; FA                ; work         ;
+;             |FA:A2|               ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M0_block:H5|FA4:M3|FA:A2                     ; FA                ; work         ;
+;             |FA:A3|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M0_block:H5|FA4:M3|FA:A3                     ; FA                ; work         ;
+;          |FA4:M6|                 ; 5 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M0_block:H5|FA4:M6                           ; FA4               ; work         ;
+;             |FA:A2|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M0_block:H5|FA4:M6|FA:A2                     ; FA                ; work         ;
+;             |FA:A3|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M0_block:H5|FA4:M6|FA:A3                     ; FA                ; work         ;
+;             |FA:A4|               ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M0_block:H5|FA4:M6|FA:A4                     ; FA                ; work         ;
+;          |MUX2:M15|               ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M15                         ; MUX2              ; work         ;
+;          |MUX2:M2|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M2                          ; MUX2              ; work         ;
+;          |OR3_mod:M23|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M0_block:H5|OR3_mod:M23                      ; OR3_mod           ; work         ;
+;          |Register4_SyncR:RR|     ; 14 (0)              ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M0_block:H5|Register4_SyncR:RR               ; Register4_SyncR   ; work         ;
+;             |D_FF_SyncR:M1|       ; 7 (7)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M0_block:H5|Register4_SyncR:RR|D_FF_SyncR:M1 ; D_FF_SyncR        ; work         ;
+;             |D_FF_SyncR:M2|       ; 3 (3)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M0_block:H5|Register4_SyncR:RR|D_FF_SyncR:M2 ; D_FF_SyncR        ; work         ;
+;             |D_FF_SyncR:M3|       ; 2 (2)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M0_block:H5|Register4_SyncR:RR|D_FF_SyncR:M3 ; D_FF_SyncR        ; work         ;
+;             |D_FF_SyncR:M4|       ; 2 (2)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M0_block:H5|Register4_SyncR:RR|D_FF_SyncR:M4 ; D_FF_SyncR        ; work         ;
+;       |M1_block:H6|               ; 13 (3)              ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M1_block:H6                                  ; M1_block          ; work         ;
+;          |FA4:M3|                 ; 6 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M1_block:H6|FA4:M3                           ; FA4               ; work         ;
+;             |FA:A1|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M1_block:H6|FA4:M3|FA:A1                     ; FA                ; work         ;
+;             |FA:A2|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M1_block:H6|FA4:M3|FA:A2                     ; FA                ; work         ;
+;             |FA:A3|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M1_block:H6|FA4:M3|FA:A3                     ; FA                ; work         ;
+;             |FA:A4|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M1_block:H6|FA4:M3|FA:A4                     ; FA                ; work         ;
+;          |MUX2:M2|                ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M1_block:H6|MUX2:M2                          ; MUX2              ; work         ;
+;          |Register4_SyncR:RR|     ; 2 (0)               ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M1_block:H6|Register4_SyncR:RR               ; Register4_SyncR   ; work         ;
+;             |D_FF_SyncR:M1|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M1_block:H6|Register4_SyncR:RR|D_FF_SyncR:M1 ; D_FF_SyncR        ; work         ;
+;             |D_FF_SyncR:M2|       ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M1_block:H6|Register4_SyncR:RR|D_FF_SyncR:M2 ; D_FF_SyncR        ; work         ;
+;             |D_FF_SyncR:M3|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M1_block:H6|Register4_SyncR:RR|D_FF_SyncR:M3 ; D_FF_SyncR        ; work         ;
+;             |D_FF_SyncR:M4|       ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|M1_block:H6|Register4_SyncR:RR|D_FF_SyncR:M4 ; D_FF_SyncR        ; work         ;
+;       |S0_block:H3|               ; 19 (6)              ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|S0_block:H3                                  ; S0_block          ; work         ;
+;          |AND4_mod:M3|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|S0_block:H3|AND4_mod:M3                      ; AND4_mod          ; work         ;
+;          |FA4:M2|                 ; 4 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|S0_block:H3|FA4:M2                           ; FA4               ; work         ;
+;             |FA:A2|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|S0_block:H3|FA4:M2|FA:A2                     ; FA                ; work         ;
+;             |FA:A3|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|S0_block:H3|FA4:M2|FA:A3                     ; FA                ; work         ;
+;             |FA:A4|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|S0_block:H3|FA4:M2|FA:A4                     ; FA                ; work         ;
+;          |OR3_mod:M9|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|S0_block:H3|OR3_mod:M9                       ; OR3_mod           ; work         ;
+;          |Register4_SyncR:RR|     ; 6 (0)               ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|S0_block:H3|Register4_SyncR:RR               ; Register4_SyncR   ; work         ;
+;             |D_FF_SyncR:M1|       ; 3 (3)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|S0_block:H3|Register4_SyncR:RR|D_FF_SyncR:M1 ; D_FF_SyncR        ; work         ;
+;             |D_FF_SyncR:M2|       ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|S0_block:H3|Register4_SyncR:RR|D_FF_SyncR:M2 ; D_FF_SyncR        ; work         ;
+;             |D_FF_SyncR:M3|       ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|S0_block:H3|Register4_SyncR:RR|D_FF_SyncR:M3 ; D_FF_SyncR        ; work         ;
+;             |D_FF_SyncR:M4|       ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|S0_block:H3|Register4_SyncR:RR|D_FF_SyncR:M4 ; D_FF_SyncR        ; work         ;
+;       |S1_block:H4|               ; 21 (9)              ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|S1_block:H4                                  ; S1_block          ; work         ;
+;          |FA4:M3|                 ; 5 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|S1_block:H4|FA4:M3                           ; FA4               ; work         ;
+;             |FA:A2|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|S1_block:H4|FA4:M3|FA:A2                     ; FA                ; work         ;
+;             |FA:A3|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|S1_block:H4|FA4:M3|FA:A3                     ; FA                ; work         ;
+;             |FA:A4|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|S1_block:H4|FA4:M3|FA:A4                     ; FA                ; work         ;
+;          |MUX2:M13|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|S1_block:H4|MUX2:M13                         ; MUX2              ; work         ;
+;          |Register4_SyncR:RR|     ; 6 (0)               ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|S1_block:H4|Register4_SyncR:RR               ; Register4_SyncR   ; work         ;
+;             |D_FF_SyncR:M1|       ; 3 (3)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|S1_block:H4|Register4_SyncR:RR|D_FF_SyncR:M1 ; D_FF_SyncR        ; work         ;
+;             |D_FF_SyncR:M2|       ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|S1_block:H4|Register4_SyncR:RR|D_FF_SyncR:M2 ; D_FF_SyncR        ; work         ;
+;             |D_FF_SyncR:M3|       ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|S1_block:H4|Register4_SyncR:RR|D_FF_SyncR:M3 ; D_FF_SyncR        ; work         ;
+;             |D_FF_SyncR:M4|       ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|S1_block:H4|Register4_SyncR:RR|D_FF_SyncR:M4 ; D_FF_SyncR        ; work         ;
+;       |clock_dividor:H1|          ; 130 (0)             ; 87 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|clock_dividor:H1                             ; clock_dividor     ; work         ;
+;          |MUX4:mux|               ; 3 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux                    ; MUX4              ; work         ;
+;             |MUX2:M1|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|MUX2:M1            ; MUX2              ; work         ;
+;             |MUX2:M2|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|MUX2:M2            ; MUX2              ; work         ;
+;             |MUX2:M3|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|MUX2:M3            ; MUX2              ; work         ;
+;          |clckdivider1hz:clk1|    ; 42 (42)             ; 29 (29)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|clock_dividor:H1|clckdivider1hz:clk1         ; clckdivider1hz    ; work         ;
+;          |clckdivider2hz:clk3|    ; 43 (43)             ; 29 (29)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|clock_dividor:H1|clckdivider2hz:clk3         ; clckdivider2hz    ; work         ;
+;          |clckdividerhalfhz:clk2| ; 42 (42)             ; 29 (29)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|STOPWATCH_LEDS:K1|clock_dividor:H1|clckdividerhalfhz:clk2      ; clckdividerhalfhz ; work         ;
+;    |seven_seg_decoder:KM0|        ; 8 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|seven_seg_decoder:KM0                                          ; seven_seg_decoder ; work         ;
+;       |OR3_mod:M15|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|seven_seg_decoder:KM0|OR3_mod:M15                              ; OR3_mod           ; work         ;
+;       |OR3_mod:M22|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|seven_seg_decoder:KM0|OR3_mod:M22                              ; OR3_mod           ; work         ;
+;       |OR3_mod:M26|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|seven_seg_decoder:KM0|OR3_mod:M26                              ; OR3_mod           ; work         ;
+;       |OR3_mod:M39|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|seven_seg_decoder:KM0|OR3_mod:M39                              ; OR3_mod           ; work         ;
+;       |OR3_mod:M5|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|seven_seg_decoder:KM0|OR3_mod:M5                               ; OR3_mod           ; work         ;
+;    |seven_seg_decoder:KM1|        ; 14 (3)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|seven_seg_decoder:KM1                                          ; seven_seg_decoder ; work         ;
+;       |OR3_mod:M15|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|seven_seg_decoder:KM1|OR3_mod:M15                              ; OR3_mod           ; work         ;
+;       |OR3_mod:M22|               ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|seven_seg_decoder:KM1|OR3_mod:M22                              ; OR3_mod           ; work         ;
+;       |OR3_mod:M26|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|seven_seg_decoder:KM1|OR3_mod:M26                              ; OR3_mod           ; work         ;
+;       |OR3_mod:M39|               ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|seven_seg_decoder:KM1|OR3_mod:M39                              ; OR3_mod           ; work         ;
+;       |OR3_mod:M5|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|seven_seg_decoder:KM1|OR3_mod:M5                               ; OR3_mod           ; work         ;
+;    |seven_seg_decoder:KS0|        ; 8 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|seven_seg_decoder:KS0                                          ; seven_seg_decoder ; work         ;
+;       |OR3_mod:M15|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|seven_seg_decoder:KS0|OR3_mod:M15                              ; OR3_mod           ; work         ;
+;       |OR3_mod:M22|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|seven_seg_decoder:KS0|OR3_mod:M22                              ; OR3_mod           ; work         ;
+;       |OR3_mod:M26|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|seven_seg_decoder:KS0|OR3_mod:M26                              ; OR3_mod           ; work         ;
+;       |OR3_mod:M39|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|seven_seg_decoder:KS0|OR3_mod:M39                              ; OR3_mod           ; work         ;
+;       |OR3_mod:M5|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|seven_seg_decoder:KS0|OR3_mod:M5                               ; OR3_mod           ; work         ;
+;    |seven_seg_decoder:KS1|        ; 14 (3)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|seven_seg_decoder:KS1                                          ; seven_seg_decoder ; work         ;
+;       |OR3_mod:M15|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|seven_seg_decoder:KS1|OR3_mod:M15                              ; OR3_mod           ; work         ;
+;       |OR3_mod:M22|               ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|seven_seg_decoder:KS1|OR3_mod:M22                              ; OR3_mod           ; work         ;
+;       |OR3_mod:M26|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|seven_seg_decoder:KS1|OR3_mod:M26                              ; OR3_mod           ; work         ;
+;       |OR3_mod:M39|               ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|seven_seg_decoder:KS1|OR3_mod:M39                              ; OR3_mod           ; work         ;
+;       |OR3_mod:M5|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STOPWATCH|seven_seg_decoder:KS1|OR3_mod:M5                               ; OR3_mod           ; work         ;
++-----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------+-------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 109   ;
+; Number of registers using Synchronous Clear  ; 84    ;
+; Number of registers using Synchronous Load   ; 4     ;
+; Number of registers using Asynchronous Clear ; 1     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 6     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------+
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |STOPWATCH|STOPWATCH_LEDS:K1|S1_block:H4|Register4_SyncR:RR|D_FF_SyncR:M3|Q ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |STOPWATCH|STOPWATCH_LEDS:K1|S0_block:H3|Register4_SyncR:RR|D_FF_SyncR:M1|Q ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; Yes        ; |STOPWATCH|STOPWATCH_LEDS:K1|M0_block:H5|Register4_SyncR:RR|D_FF_SyncR:M3|Q ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; Yes        ; |STOPWATCH|STOPWATCH_LEDS:K1|M0_block:H5|Register4_SyncR:RR|D_FF_SyncR:M1|Q ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |STOPWATCH|STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M5|y[2]                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|clock_dividor:H1|clckdivider1hz:clk1 ;
++----------------+------------------------------+-----------------------------------------------------+
+; Parameter Name ; Value                        ; Type                                                ;
++----------------+------------------------------+-----------------------------------------------------+
+; division       ; 0010111110101111000010000000 ; Unsigned Binary                                     ;
++----------------+------------------------------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|clock_dividor:H1|clckdividerhalfhz:clk2 ;
++----------------+------------------------------+--------------------------------------------------------+
+; Parameter Name ; Value                        ; Type                                                   ;
++----------------+------------------------------+--------------------------------------------------------+
+; division       ; 0101111101011110000100000000 ; Unsigned Binary                                        ;
++----------------+------------------------------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|clock_dividor:H1|clckdivider2hz:clk3 ;
++----------------+------------------------------+-----------------------------------------------------+
+; Parameter Name ; Value                        ; Type                                                ;
++----------------+------------------------------+-----------------------------------------------------+
+; division       ; 0001011111010111100001000000 ; Unsigned Binary                                     ;
++----------------+------------------------------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; WIDTH          ; 1     ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|MUX2:M1 ;
++----------------+-------+-------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                    ;
++----------------+-------+-------------------------------------------------------------------------+
+; WIDTH          ; 1     ; Signed Integer                                                          ;
++----------------+-------+-------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|MUX2:M2 ;
++----------------+-------+-------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                    ;
++----------------+-------+-------------------------------------------------------------------------+
+; WIDTH          ; 1     ; Signed Integer                                                          ;
++----------------+-------+-------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|MUX2:M3 ;
++----------------+-------+-------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                    ;
++----------------+-------+-------------------------------------------------------------------------+
+; WIDTH          ; 1     ; Signed Integer                                                          ;
++----------------+-------+-------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|S0_block:H3|MUX2:M1 ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|S0_block:H3|MUX2:M12 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|S1_block:H4|MUX2:M1 ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|S1_block:H4|MUX2:M2 ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|S1_block:H4|MUX2:M13 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; WIDTH          ; 1     ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|S1_block:H4|MUX4:M25 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|S1_block:H4|MUX4:M25|MUX2:M1 ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|S1_block:H4|MUX4:M25|MUX2:M2 ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|S1_block:H4|MUX4:M25|MUX2:M3 ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|S1_block:H4|MUX2:M28 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; WIDTH          ; 1     ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M1 ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M2 ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M4 ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M5 ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M15 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; WIDTH          ; 1     ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M17 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M18 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M19 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M28 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; WIDTH          ; 1     ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M1_block:H6|MUX2:M1 ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M1_block:H6|MUX2:M2 ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M1_block:H6|MUX4:M6 ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M1_block:H6|MUX4:M6|MUX2:M1 ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M1_block:H6|MUX4:M6|MUX2:M2 ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|M1_block:H6|MUX4:M6|MUX2:M3 ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M2 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; WIDTH          ; 1     ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M3 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M4 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M5 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M6 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M7 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M8 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M9 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M10 ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M11 ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M12 ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M13 ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M14 ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Port Connectivity Checks: "seven_seg_decoder:KS0|AND4_mod:M37" ;
++------+-------+----------+--------------------------------------+
+; Port ; Type  ; Severity ; Details                              ;
++------+-------+----------+--------------------------------------+
+; a3   ; Input ; Info     ; Stuck at VCC                         ;
++------+-------+----------+--------------------------------------+
+
+
++----------------------------------------------------------------+
+; Port Connectivity Checks: "seven_seg_decoder:KS0|AND4_mod:M25" ;
++------+-------+----------+--------------------------------------+
+; Port ; Type  ; Severity ; Details                              ;
++------+-------+----------+--------------------------------------+
+; a3   ; Input ; Info     ; Stuck at VCC                         ;
++------+-------+----------+--------------------------------------+
+
+
++----------------------------------------------------------------+
+; Port Connectivity Checks: "seven_seg_decoder:KS0|AND4_mod:M24" ;
++------+-------+----------+--------------------------------------+
+; Port ; Type  ; Severity ; Details                              ;
++------+-------+----------+--------------------------------------+
+; a3   ; Input ; Info     ; Stuck at VCC                         ;
++------+-------+----------+--------------------------------------+
+
+
++----------------------------------------------------------------+
+; Port Connectivity Checks: "seven_seg_decoder:KS0|AND4_mod:M20" ;
++------+-------+----------+--------------------------------------+
+; Port ; Type  ; Severity ; Details                              ;
++------+-------+----------+--------------------------------------+
+; a3   ; Input ; Info     ; Stuck at VCC                         ;
++------+-------+----------+--------------------------------------+
+
+
++----------------------------------------------------------------+
+; Port Connectivity Checks: "seven_seg_decoder:KS0|AND4_mod:M19" ;
++------+-------+----------+--------------------------------------+
+; Port ; Type  ; Severity ; Details                              ;
++------+-------+----------+--------------------------------------+
+; a3   ; Input ; Info     ; Stuck at VCC                         ;
++------+-------+----------+--------------------------------------+
+
+
++----------------------------------------------------------------+
+; Port Connectivity Checks: "seven_seg_decoder:KS0|AND4_mod:M18" ;
++------+-------+----------+--------------------------------------+
+; Port ; Type  ; Severity ; Details                              ;
++------+-------+----------+--------------------------------------+
+; a3   ; Input ; Info     ; Stuck at VCC                         ;
++------+-------+----------+--------------------------------------+
+
+
++----------------------------------------------------------------+
+; Port Connectivity Checks: "seven_seg_decoder:KS0|AND4_mod:M17" ;
++------+-------+----------+--------------------------------------+
+; Port ; Type  ; Severity ; Details                              ;
++------+-------+----------+--------------------------------------+
+; a3   ; Input ; Info     ; Stuck at VCC                         ;
++------+-------+----------+--------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M13" ;
++-------+-------+----------+-------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                   ;
++-------+-------+----------+-------------------------------------------+
+; a0    ; Input ; Info     ; Stuck at GND                              ;
+; a1[3] ; Input ; Info     ; Stuck at VCC                              ;
+; a1[2] ; Input ; Info     ; Stuck at GND                              ;
+; a1[1] ; Input ; Info     ; Stuck at VCC                              ;
+; a1[0] ; Input ; Info     ; Stuck at GND                              ;
++-------+-------+----------+-------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M12" ;
++------+-------+----------+--------------------------------------------+
+; Port ; Type  ; Severity ; Details                                    ;
++------+-------+----------+--------------------------------------------+
+; a1   ; Input ; Info     ; Stuck at VCC                               ;
++------+-------+----------+--------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M10" ;
++-------+-------+----------+-------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                   ;
++-------+-------+----------+-------------------------------------------+
+; a0    ; Input ; Info     ; Stuck at GND                              ;
+; a1[3] ; Input ; Info     ; Stuck at VCC                              ;
+; a1[2] ; Input ; Info     ; Stuck at GND                              ;
+; a1[1] ; Input ; Info     ; Stuck at VCC                              ;
+; a1[0] ; Input ; Info     ; Stuck at GND                              ;
++-------+-------+----------+-------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M9" ;
++----------+-------+----------+---------------------------------------+
+; Port     ; Type  ; Severity ; Details                               ;
++----------+-------+----------+---------------------------------------+
+; a1[1..0] ; Input ; Info     ; Stuck at VCC                          ;
+; a1[3..2] ; Input ; Info     ; Stuck at GND                          ;
++----------+-------+----------+---------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M7" ;
++-------+-------+----------+------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                  ;
++-------+-------+----------+------------------------------------------+
+; a0    ; Input ; Info     ; Stuck at GND                             ;
+; a1[3] ; Input ; Info     ; Stuck at VCC                             ;
+; a1[2] ; Input ; Info     ; Stuck at GND                             ;
+; a1[1] ; Input ; Info     ; Stuck at VCC                             ;
+; a1[0] ; Input ; Info     ; Stuck at GND                             ;
++-------+-------+----------+------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M6" ;
++------+-------+----------+-------------------------------------------+
+; Port ; Type  ; Severity ; Details                                   ;
++------+-------+----------+-------------------------------------------+
+; a1   ; Input ; Info     ; Stuck at VCC                              ;
++------+-------+----------+-------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M4" ;
++-------+-------+----------+------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                  ;
++-------+-------+----------+------------------------------------------+
+; a0    ; Input ; Info     ; Stuck at GND                             ;
+; a1[3] ; Input ; Info     ; Stuck at VCC                             ;
+; a1[2] ; Input ; Info     ; Stuck at GND                             ;
+; a1[1] ; Input ; Info     ; Stuck at VCC                             ;
+; a1[0] ; Input ; Info     ; Stuck at GND                             ;
++-------+-------+----------+------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M3" ;
++----------+-------+----------+---------------------------------------+
+; Port     ; Type  ; Severity ; Details                               ;
++----------+-------+----------+---------------------------------------+
+; a1[1..0] ; Input ; Info     ; Stuck at VCC                          ;
+; a1[3..2] ; Input ; Info     ; Stuck at GND                          ;
++----------+-------+----------+---------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|MUX2:M2" ;
++------+-------+----------+-------------------------------------------+
+; Port ; Type  ; Severity ; Details                                   ;
++------+-------+----------+-------------------------------------------+
+; a0   ; Input ; Info     ; Stuck at VCC                              ;
++------+-------+----------+-------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|JK_FF:M1" ;
++------+-------+----------+--------------------------------------------+
+; Port ; Type  ; Severity ; Details                                    ;
++------+-------+----------+--------------------------------------------+
+; EN   ; Input ; Info     ; Stuck at VCC                               ;
+; K    ; Input ; Info     ; Stuck at VCC                               ;
++------+-------+----------+--------------------------------------------+
+
+
++--------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|Error1:M20|D_FF_SyncR:M8" ;
++------+-------+----------+------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                    ;
++------+-------+----------+------------------------------------------------------------+
+; EN   ; Input ; Info     ; Stuck at VCC                                               ;
++------+-------+----------+------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|Error1:M20|D_FF_SyncR:M6" ;
++------+-------+----------+------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                    ;
++------+-------+----------+------------------------------------------------------------+
+; EN   ; Input ; Info     ; Stuck at VCC                                               ;
++------+-------+----------+------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|Error1:M20|D_FF_SyncR:M4" ;
++------+-------+----------+------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                    ;
++------+-------+----------+------------------------------------------------------------+
+; EN   ; Input ; Info     ; Stuck at VCC                                               ;
++------+-------+----------+------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7|Error1:M20|D_FF_SyncR:M1" ;
++-------+-------+----------+-----------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                   ;
++-------+-------+----------+-----------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                              ;
+; EN    ; Input ; Info     ; Stuck at VCC                                              ;
++-------+-------+----------+-----------------------------------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|Error1_out:H7" ;
++-----------+-------+----------+------------------------------+
+; Port      ; Type  ; Severity ; Details                      ;
++-----------+-------+----------+------------------------------+
+; seven_seg ; Input ; Info     ; Stuck at VCC                 ;
++-----------+-------+----------+------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|M1_block:H6|MUX4:M6" ;
++----------+-------+----------+-------------------------------------+
+; Port     ; Type  ; Severity ; Details                             ;
++----------+-------+----------+-------------------------------------+
+; a1[3..1] ; Input ; Info     ; Stuck at GND                        ;
+; a1[0]    ; Input ; Info     ; Stuck at VCC                        ;
+; a2[1..0] ; Input ; Info     ; Stuck at GND                        ;
+; a2[3]    ; Input ; Info     ; Stuck at GND                        ;
+; a2[2]    ; Input ; Info     ; Stuck at VCC                        ;
+; a3       ; Input ; Info     ; Stuck at GND                        ;
++----------+-------+----------+-------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|M1_block:H6|FA4:M3"                                               ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Cin  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|M1_block:H6|MUX2:M2" ;
++------+-------+----------+-----------------------------------------+
+; Port ; Type  ; Severity ; Details                                 ;
++------+-------+----------+-----------------------------------------+
+; a0   ; Input ; Info     ; Stuck at GND                            ;
++------+-------+----------+-----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|M1_block:H6|MUX2:M1" ;
++----------+-------+----------+-------------------------------------+
+; Port     ; Type  ; Severity ; Details                             ;
++----------+-------+----------+-------------------------------------+
+; a0       ; Input ; Info     ; Stuck at VCC                        ;
+; a1[3..1] ; Input ; Info     ; Stuck at GND                        ;
+; a1[0]    ; Input ; Info     ; Stuck at VCC                        ;
++----------+-------+----------+-------------------------------------+
+
+
++--------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M19" ;
++----------+-------+----------+--------------------------------------+
+; Port     ; Type  ; Severity ; Details                              ;
++----------+-------+----------+--------------------------------------+
+; a1[2..1] ; Input ; Info     ; Stuck at GND                         ;
+; a1[3]    ; Input ; Info     ; Stuck at VCC                         ;
+; a1[0]    ; Input ; Info     ; Stuck at VCC                         ;
++----------+-------+----------+--------------------------------------+
+
+
++--------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M17" ;
++----------+-------+----------+--------------------------------------+
+; Port     ; Type  ; Severity ; Details                              ;
++----------+-------+----------+--------------------------------------+
+; a1[3..2] ; Input ; Info     ; Stuck at GND                         ;
++----------+-------+----------+--------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|M0_block:H5|FA4:M6"                                               ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Cin  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M5" ;
++------+-------+----------+-----------------------------------------+
+; Port ; Type  ; Severity ; Details                                 ;
++------+-------+----------+-----------------------------------------+
+; a0   ; Input ; Info     ; Stuck at GND                            ;
++------+-------+----------+-----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M4" ;
++----------+-------+----------+-------------------------------------+
+; Port     ; Type  ; Severity ; Details                             ;
++----------+-------+----------+-------------------------------------+
+; a0[3..1] ; Input ; Info     ; Stuck at VCC                        ;
+; a0[0]    ; Input ; Info     ; Stuck at GND                        ;
+; a1[3..2] ; Input ; Info     ; Stuck at GND                        ;
+; a1[1]    ; Input ; Info     ; Stuck at VCC                        ;
+; a1[0]    ; Input ; Info     ; Stuck at GND                        ;
++----------+-------+----------+-------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|M0_block:H5|FA4:M3"                                               ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Cin  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M2" ;
++------+-------+----------+-----------------------------------------+
+; Port ; Type  ; Severity ; Details                                 ;
++------+-------+----------+-----------------------------------------+
+; a0   ; Input ; Info     ; Stuck at GND                            ;
++------+-------+----------+-----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|M0_block:H5|MUX2:M1" ;
++----------+-------+----------+-------------------------------------+
+; Port     ; Type  ; Severity ; Details                             ;
++----------+-------+----------+-------------------------------------+
+; a0       ; Input ; Info     ; Stuck at VCC                        ;
+; a1[3..1] ; Input ; Info     ; Stuck at GND                        ;
+; a1[0]    ; Input ; Info     ; Stuck at VCC                        ;
++----------+-------+----------+-------------------------------------+
+
+
++------------------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|S1_block:H4|Register4_SyncR:RR" ;
++------+-------+----------+----------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                            ;
++------+-------+----------+----------------------------------------------------+
+; EN   ; Input ; Info     ; Stuck at VCC                                       ;
++------+-------+----------+----------------------------------------------------+
+
+
++--------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|S1_block:H4|MUX4:M25" ;
++----------+-------+----------+--------------------------------------+
+; Port     ; Type  ; Severity ; Details                              ;
++----------+-------+----------+--------------------------------------+
+; a1[3]    ; Input ; Info     ; Stuck at GND                         ;
+; a1[2]    ; Input ; Info     ; Stuck at VCC                         ;
+; a1[1]    ; Input ; Info     ; Stuck at GND                         ;
+; a1[0]    ; Input ; Info     ; Stuck at VCC                         ;
+; a2[3..2] ; Input ; Info     ; Stuck at GND                         ;
+; a2[1]    ; Input ; Info     ; Stuck at VCC                         ;
+; a2[0]    ; Input ; Info     ; Stuck at GND                         ;
+; a3[1..0] ; Input ; Info     ; Stuck at VCC                         ;
+; a3[3..2] ; Input ; Info     ; Stuck at GND                         ;
++----------+-------+----------+--------------------------------------+
+
+
++---------------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|S1_block:H4|Comparator4:M12" ;
++---------+-------+----------+----------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                      ;
++---------+-------+----------+----------------------------------------------+
+; A[3..2] ; Input ; Info     ; Stuck at GND                                 ;
+; A[1]    ; Input ; Info     ; Stuck at VCC                                 ;
+; A[0]    ; Input ; Info     ; Stuck at GND                                 ;
++---------+-------+----------+----------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|S1_block:H4|Comparator4:M11|Subtractor4:M1|FA4:A1"                ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Cin  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; Cout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|S1_block:H4|Comparator4:M11|Subtractor4:M1"                          ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; y[2..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|S1_block:H4|Comparator4:M11" ;
++---------+-------+----------+----------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                      ;
++---------+-------+----------+----------------------------------------------+
+; B[3..2] ; Input ; Info     ; Stuck at GND                                 ;
+; B[1]    ; Input ; Info     ; Stuck at VCC                                 ;
+; B[0]    ; Input ; Info     ; Stuck at GND                                 ;
++---------+-------+----------+----------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|S1_block:H4|FA4:M3"                                               ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Cin  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|S1_block:H4|MUX2:M2" ;
++------+-------+----------+-----------------------------------------+
+; Port ; Type  ; Severity ; Details                                 ;
++------+-------+----------+-----------------------------------------+
+; a0   ; Input ; Info     ; Stuck at GND                            ;
++------+-------+----------+-----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|S1_block:H4|MUX2:M1" ;
++----------+-------+----------+-------------------------------------+
+; Port     ; Type  ; Severity ; Details                             ;
++----------+-------+----------+-------------------------------------+
+; a0       ; Input ; Info     ; Stuck at VCC                        ;
+; a1[3..1] ; Input ; Info     ; Stuck at GND                        ;
+; a1[0]    ; Input ; Info     ; Stuck at VCC                        ;
++----------+-------+----------+-------------------------------------+
+
+
++--------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|S0_block:H3|MUX2:M12" ;
++----------+-------+----------+--------------------------------------+
+; Port     ; Type  ; Severity ; Details                              ;
++----------+-------+----------+--------------------------------------+
+; a1[2..1] ; Input ; Info     ; Stuck at GND                         ;
+; a1[3]    ; Input ; Info     ; Stuck at VCC                         ;
+; a1[0]    ; Input ; Info     ; Stuck at VCC                         ;
++----------+-------+----------+--------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|S0_block:H3|FA4:M2"                                               ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Cin  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|S0_block:H3|MUX2:M1" ;
++----------+-------+----------+-------------------------------------+
+; Port     ; Type  ; Severity ; Details                             ;
++----------+-------+----------+-------------------------------------+
+; a0       ; Input ; Info     ; Stuck at VCC                        ;
+; a1[3..1] ; Input ; Info     ; Stuck at GND                        ;
+; a1[0]    ; Input ; Info     ; Stuck at VCC                        ;
++----------+-------+----------+-------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|MUX2:M3"                                                                                                                            ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                          ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; a0   ; Input ; Warning  ; Input port expression (4 bits) is wider than the input port (1 bits) it drives.  The 3 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; a1   ; Input ; Warning  ; Input port expression (4 bits) is wider than the input port (1 bits) it drives.  The 3 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|MUX2:M2"                                                                                                                  ;
++------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                                                               ;
++------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; y    ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (4 bits) it drives.  The 3 most-significant bit(s) in the port expression will be connected to GND. ;
++------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|MUX2:M1"                                                                                                                  ;
++------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                                                               ;
++------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; y    ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (4 bits) it drives.  The 3 most-significant bit(s) in the port expression will be connected to GND. ;
++------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 35                          ;
+; cycloneiii_ff         ; 109                         ;
+;     CLR               ; 1                           ;
+;     ENA               ; 4                           ;
+;     ENA SLD           ; 2                           ;
+;     SCLR              ; 84                          ;
+;     SLD               ; 2                           ;
+;     plain             ; 16                          ;
+; cycloneiii_lcell_comb ; 291                         ;
+;     arith             ; 81                          ;
+;         2 data inputs ; 81                          ;
+;     normal            ; 210                         ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 8                           ;
+;         3 data inputs ; 39                          ;
+;         4 data inputs ; 159                         ;
+;                       ;                             ;
+; Max LUT depth         ; 15.00                       ;
+; Average LUT depth     ; 5.80                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+    Info: Processing started: Mon Jan  9 22:30:07 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off stopwatch -c stopwatch
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file subtractor4.sv
+    Info (12023): Found entity 1: Subtractor4 File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/Subtractor4.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file stopwatch_seven_seg.sv
+    Info (12023): Found entity 1: STOPWATCH_Seven_Seg File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/STOPWATCH_Seven_Seg.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file stopwatch.sv
+    Info (12023): Found entity 1: STOPWATCH File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/STOPWATCH.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file seven_seg_decoder.sv
+    Info (12023): Found entity 1: seven_seg_decoder File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/seven_seg_decoder.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file s1_block.sv
+    Info (12023): Found entity 1: S1_block File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/S1_block.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file s0_block.sv
+    Info (12023): Found entity 1: S0_block File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/S0_block.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file register4_syncr.sv
+    Info (12023): Found entity 1: Register4_SyncR File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/Register4_SyncR.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file or3_mod.sv
+    Info (12023): Found entity 1: OR3_mod File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/OR3_mod.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file nor4_mod.sv
+    Info (12023): Found entity 1: NOR4_mod File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/NOR4_mod.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file mux4.sv
+    Info (12023): Found entity 1: MUX4 File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/MUX4.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file mux2.sv
+    Info (12023): Found entity 1: MUX2 File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/MUX2.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file m1_block.sv
+    Info (12023): Found entity 1: M1_block File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/M1_block.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file m0_block.sv
+    Info (12023): Found entity 1: M0_block File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/M0_block.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file jk_ff.sv
+    Info (12023): Found entity 1: JK_FF File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/JK_FF.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file fa4.sv
+    Info (12023): Found entity 1: FA4 File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/FA4.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file fa.sv
+    Info (12023): Found entity 1: FA File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/FA.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file error1_out.sv
+    Info (12023): Found entity 1: Error1_out File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/Error1_out.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file error1.sv
+    Info (12023): Found entity 1: Error1 File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/Error1.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file dff_mod.sv
+    Info (12023): Found entity 1: DFF_mod File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/DFF_mod.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file d_ff_syncr.sv
+    Info (12023): Found entity 1: D_FF_SyncR File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/D_FF_SyncR.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file comparator4.sv
+    Info (12023): Found entity 1: Comparator4 File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/Comparator4.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file clock_dividor.sv
+    Info (12023): Found entity 1: clock_dividor File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/clock_dividor.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file clckdividerhalfhz.sv
+    Info (12023): Found entity 1: clckdividerhalfhz File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/clckdividerhalfhz.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file clckdivider2hz.sv
+    Info (12023): Found entity 1: clckdivider2hz File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/clckdivider2hz.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file clckdivider1hz.sv
+    Info (12023): Found entity 1: clckdivider1hz File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/clckdivider1hz.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file and4_mod.sv
+    Info (12023): Found entity 1: AND4_mod File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/AND4_mod.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/stopwatch_leds.sv
+    Info (12023): Found entity 1: STOPWATCH_LEDS File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/output_files/STOPWATCH_LEDS.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux2_1s.sv
+    Info (12023): Found entity 1: MUX2_1S File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/MUX2_1S.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file mux2_14s.sv
+    Info (12023): Found entity 1: MUX2_14S File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/MUX2_14S.sv Line: 2
+Warning (10236): Verilog HDL Implicit Net warning at STOPWATCH_Seven_Seg.sv(10): created implicit net for "clk" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/STOPWATCH_Seven_Seg.sv Line: 10
+Warning (10236): Verilog HDL Implicit Net warning at S1_block.sv(38): created implicit net for "M40_out" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/S1_block.sv Line: 38
+Warning (10236): Verilog HDL Implicit Net warning at M1_block.sv(33): created implicit net for "M41_out" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/M1_block.sv Line: 33
+Warning (10236): Verilog HDL Implicit Net warning at JK_FF.sv(12): created implicit net for "and2" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/JK_FF.sv Line: 12
+Warning (10236): Verilog HDL Implicit Net warning at STOPWATCH_LEDS.sv(11): created implicit net for "clk" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/output_files/STOPWATCH_LEDS.sv Line: 11
+Info (12127): Elaborating entity "STOPWATCH" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at STOPWATCH.sv(6): object "seven_segment_flag" assigned a value but never read File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/STOPWATCH.sv Line: 6
+Info (12128): Elaborating entity "STOPWATCH_LEDS" for hierarchy "STOPWATCH_LEDS:K1" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/STOPWATCH.sv Line: 10
+Info (12128): Elaborating entity "clock_dividor" for hierarchy "STOPWATCH_LEDS:K1|clock_dividor:H1" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/output_files/STOPWATCH_LEDS.sv Line: 11
+Info (12128): Elaborating entity "clckdivider1hz" for hierarchy "STOPWATCH_LEDS:K1|clock_dividor:H1|clckdivider1hz:clk1" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/clock_dividor.sv Line: 7
+Info (12128): Elaborating entity "clckdividerhalfhz" for hierarchy "STOPWATCH_LEDS:K1|clock_dividor:H1|clckdividerhalfhz:clk2" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/clock_dividor.sv Line: 8
+Info (12128): Elaborating entity "clckdivider2hz" for hierarchy "STOPWATCH_LEDS:K1|clock_dividor:H1|clckdivider2hz:clk3" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/clock_dividor.sv Line: 9
+Info (12128): Elaborating entity "MUX4" for hierarchy "STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/clock_dividor.sv Line: 11
+Info (12128): Elaborating entity "MUX2" for hierarchy "STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|MUX2:M1" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/MUX4.sv Line: 13
+Info (12128): Elaborating entity "DFF_mod" for hierarchy "STOPWATCH_LEDS:K1|DFF_mod:H2" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/output_files/STOPWATCH_LEDS.sv Line: 21
+Info (12128): Elaborating entity "S0_block" for hierarchy "STOPWATCH_LEDS:K1|S0_block:H3" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/output_files/STOPWATCH_LEDS.sv Line: 24
+Info (12128): Elaborating entity "MUX2" for hierarchy "STOPWATCH_LEDS:K1|S0_block:H3|MUX2:M1" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/S0_block.sv Line: 15
+Info (12128): Elaborating entity "FA4" for hierarchy "STOPWATCH_LEDS:K1|S0_block:H3|FA4:M2" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/S0_block.sv Line: 16
+Info (12128): Elaborating entity "FA" for hierarchy "STOPWATCH_LEDS:K1|S0_block:H3|FA4:M2|FA:A1" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/FA4.sv Line: 11
+Info (12128): Elaborating entity "AND4_mod" for hierarchy "STOPWATCH_LEDS:K1|S0_block:H3|AND4_mod:M3" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/S0_block.sv Line: 17
+Info (12128): Elaborating entity "OR3_mod" for hierarchy "STOPWATCH_LEDS:K1|S0_block:H3|OR3_mod:M9" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/S0_block.sv Line: 24
+Info (12128): Elaborating entity "Register4_SyncR" for hierarchy "STOPWATCH_LEDS:K1|S0_block:H3|Register4_SyncR:RR" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/S0_block.sv Line: 34
+Info (12128): Elaborating entity "D_FF_SyncR" for hierarchy "STOPWATCH_LEDS:K1|S0_block:H3|Register4_SyncR:RR|D_FF_SyncR:M1" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/Register4_SyncR.sv Line: 8
+Info (12128): Elaborating entity "S1_block" for hierarchy "STOPWATCH_LEDS:K1|S1_block:H4" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/output_files/STOPWATCH_LEDS.sv Line: 25
+Info (12128): Elaborating entity "Comparator4" for hierarchy "STOPWATCH_LEDS:K1|S1_block:H4|Comparator4:M11" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/S1_block.sv Line: 30
+Info (12128): Elaborating entity "Subtractor4" for hierarchy "STOPWATCH_LEDS:K1|S1_block:H4|Comparator4:M11|Subtractor4:M1" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/Comparator4.sv Line: 8
+Info (12128): Elaborating entity "MUX4" for hierarchy "STOPWATCH_LEDS:K1|S1_block:H4|MUX4:M25" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/S1_block.sv Line: 48
+Info (12128): Elaborating entity "M0_block" for hierarchy "STOPWATCH_LEDS:K1|M0_block:H5" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/output_files/STOPWATCH_LEDS.sv Line: 26
+Info (12128): Elaborating entity "M1_block" for hierarchy "STOPWATCH_LEDS:K1|M1_block:H6" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/output_files/STOPWATCH_LEDS.sv Line: 27
+Info (12128): Elaborating entity "Error1_out" for hierarchy "STOPWATCH_LEDS:K1|Error1_out:H7" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/output_files/STOPWATCH_LEDS.sv Line: 46
+Info (12128): Elaborating entity "Error1" for hierarchy "STOPWATCH_LEDS:K1|Error1_out:H7|Error1:M20" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/Error1_out.sv Line: 12
+Info (12128): Elaborating entity "JK_FF" for hierarchy "STOPWATCH_LEDS:K1|Error1_out:H7|JK_FF:M1" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/Error1_out.sv Line: 14
+Info (12128): Elaborating entity "seven_seg_decoder" for hierarchy "seven_seg_decoder:KS0" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/STOPWATCH.sv Line: 12
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|y1[3]" is missing source, defaulting to GND File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/MUX4.sv Line: 10
+    Warning (12110): Net "STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|y1[2]" is missing source, defaulting to GND File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/MUX4.sv Line: 10
+    Warning (12110): Net "STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|y1[1]" is missing source, defaulting to GND File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/MUX4.sv Line: 10
+    Warning (12110): Net "STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|y2[3]" is missing source, defaulting to GND File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/MUX4.sv Line: 10
+    Warning (12110): Net "STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|y2[2]" is missing source, defaulting to GND File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/MUX4.sv Line: 10
+    Warning (12110): Net "STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|y2[1]" is missing source, defaulting to GND File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/MUX4.sv Line: 10
+Warning (19016): Clock multiplexers are found and protected
+    Warning (19017): Found clock multiplexer STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|MUX2:M3|y[0] File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/MUX2.sv Line: 8
+    Warning (19017): Found clock multiplexer STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|MUX2:M2|y[0] File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/MUX2.sv Line: 8
+    Warning (19017): Found clock multiplexer STOPWATCH_LEDS:K1|clock_dividor:H1|MUX4:mux|MUX2:M1|y[0] File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/MUX2.sv Line: 8
+Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "STOPWATCH_LEDS:K1|DFF_mod:H2|Q" is converted into an equivalent circuit using register "STOPWATCH_LEDS:K1|DFF_mod:H2|Q~_emulated" and latch "STOPWATCH_LEDS:K1|DFF_mod:H2|Q~1" File: D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/DFF_mod.sv Line: 5
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/output_files/stopwatch.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 327 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 28 output pins
+    Info (21061): Implemented 292 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 21 warnings
+    Info: Peak virtual memory: 4852 megabytes
+    Info: Processing ended: Mon Jan  9 22:30:16 2023
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:19
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/CIE 239 - Phase 2 - Team 6/FPGA_Project/output_files/stopwatch.map.smsg.
+
+

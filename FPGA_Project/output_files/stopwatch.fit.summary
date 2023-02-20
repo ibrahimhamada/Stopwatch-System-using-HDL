@@ -1,0 +1,16 @@
+Fitter Status : Successful - Mon Jan  9 22:30:24 2023
+Quartus Prime Version : 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+Revision Name : stopwatch
+Top-level Entity Name : STOPWATCH
+Family : Cyclone IV E
+Device : EP4CE22F17C6
+Timing Models : Final
+Total logic elements : 296 / 22,320 ( 1 % )
+    Total combinational functions : 291 / 22,320 ( 1 % )
+    Dedicated logic registers : 109 / 22,320 ( < 1 % )
+Total registers : 109
+Total pins : 35 / 154 ( 23 % )
+Total virtual pins : 0
+Total memory bits : 0 / 608,256 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 132 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )

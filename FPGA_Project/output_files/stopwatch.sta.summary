@@ -1,0 +1,113 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'slowdown'
+Slack : -8.257
+TNS   : -139.913
+
+Type  : Slow 1200mV 85C Model Setup 'in_clk'
+Slack : -2.921
+TNS   : -217.621
+
+Type  : Slow 1200mV 85C Model Hold 'slowdown'
+Slack : -0.243
+TNS   : -0.926
+
+Type  : Slow 1200mV 85C Model Hold 'in_clk'
+Slack : 0.469
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'slowdown'
+Slack : -0.072
+TNS   : -0.072
+
+Type  : Slow 1200mV 85C Model Removal 'slowdown'
+Slack : 0.158
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'in_clk'
+Slack : -3.000
+TNS   : -90.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'slowdown'
+Slack : -3.000
+TNS   : -25.815
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'reset'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 0C Model Setup 'slowdown'
+Slack : -7.330
+TNS   : -124.334
+
+Type  : Slow 1200mV 0C Model Setup 'in_clk'
+Slack : -2.561
+TNS   : -189.482
+
+Type  : Slow 1200mV 0C Model Hold 'slowdown'
+Slack : -0.378
+TNS   : -1.613
+
+Type  : Slow 1200mV 0C Model Hold 'in_clk'
+Slack : 0.419
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'slowdown'
+Slack : -0.039
+TNS   : -0.039
+
+Type  : Slow 1200mV 0C Model Removal 'slowdown'
+Slack : 0.019
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'in_clk'
+Slack : -3.000
+TNS   : -90.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'slowdown'
+Slack : -3.000
+TNS   : -27.015
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'reset'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Fast 1200mV 0C Model Setup 'slowdown'
+Slack : -4.125
+TNS   : -68.768
+
+Type  : Fast 1200mV 0C Model Setup 'in_clk'
+Slack : -1.128
+TNS   : -79.614
+
+Type  : Fast 1200mV 0C Model Hold 'slowdown'
+Slack : -0.210
+TNS   : -0.914
+
+Type  : Fast 1200mV 0C Model Hold 'in_clk'
+Slack : 0.250
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'slowdown'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'slowdown'
+Slack : 0.038
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'in_clk'
+Slack : -3.000
+TNS   : -95.385
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'slowdown'
+Slack : -3.000
+TNS   : -25.900
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'reset'
+Slack : -3.000
+TNS   : -3.000
+
+------------------------------------------------------------
