@@ -2,9 +2,9 @@
 The project aims to design, implement, and verify the functionality of a stopwatch system using HDL (SystemVerilog IEEE 1800-2017), the De0-Nano FPGA development platform, and the necessary supporting hardware.
 
 
-In this project, I implmented a stopwatch system using SystemVerilog. The stopwatch is designed to display 4 digits, 2 for minutes and 2 for seconds: M1M0:S1S0. The minimum starting value of the stopwatch is 10:20, while the maximum value of this stopwatch is 49:30. 
+## In this project, I implmented a stopwatch system using SystemVerilog. The stopwatch is designed to display 4 digits, 2 for minutes and 2 for seconds: M1M0:S1S0. The minimum starting value of the stopwatch is 10:20, while the maximum value of this stopwatch is 49:30. 
 
-The stopwatch has multiple inputs as follows:
+## The stopwatch has multiple inputs as follows:
 1) DIP switch for starting and pausing the count operation. 
 2) DIP switch for toggling between the count up and count down modes. 
 3) DIP switch for speeding up the watch rate so that the watch will count two digits each second.
@@ -17,7 +17,7 @@ The stopwatch has multiple inputs as follows:
     b) Count-down mode: subtracting 2 minutes each time it is pressed.
 
 ## The System Design:
-![Uploading Circuittttttttt.jpg…]()
+![Circuittttttttt](https://user-images.githubusercontent.com/58476343/220156895-a488efcb-2bc4-416e-8e87-995051a1c0b9.jpg)
 
 
 ## Demo <a name="demo"></a>
